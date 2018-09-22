@@ -1,0 +1,19 @@
+{
+  "name": "ml-server",
+  "version": "1.0.0",
+  "description": "This is a node rest api server",
+  "main": "app.js",
+  "author": "Juan Cruz Hernandez",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0"
+  }
+}
