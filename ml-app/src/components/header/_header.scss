@@ -1,0 +1,11 @@
+@import '../../shared/styles/variables';
+
+.header-container {
+  background-color: $ml-yellow;
+}
+
+.ml-logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}

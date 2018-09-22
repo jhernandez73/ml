@@ -1,38 +1,39 @@
 import React from 'react';
+import axios from 'axios';
 
 export class ProductDetails extends React.Component {
-  render() {
-    const product = {
-      author: {
-        name: 'Juan',
-        lastname: 'Hernandez'
-      },
-      item: {
-        id: 1,
-        title: 'perrito',
-        price: {
-          currency: 'ARS',
-          amount: 500,
-          decimals: 0
-        },
-        picture: 'https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwixuoeq2r3dAhWDfZAKHR5xCQwQjRx6BAgBEAU&url=https%3A%2F%2Fwww.genbeta.com%2Fbuscadores%2Frevive-el-boton-de-ver-imagen-en-google-imagenes-con-estas-extensiones&psig=AOvVaw3RHLRbYNxjQKyEpQlOTVfW&ust=1537124821909178',
-        condition: 'new',
-        free_shipping: true,
-        sold_quantity: 5,
-        description: 'Este es un perrito'
-      }
+  constructor(props) {
+    super(props)
+    this.state = {
+      product: {}
     }
+  }
+  componentWillMount() {
+    const { match: { params } } = this.props;
+    console.log('params', params);
+    this.getProduct(params.id);
+  }
+  getProduct(id) {
+    axios.get(process.env.REACT_APP_API_URL + '/products/' + id, { headers: { 'Access-Control-Allow-Origin': '*' } })
+      .then(response => {
+        this.setState({
+          product: response.data
+        });
+        console.log(this.state);
+      })
+  }
+  render() {
     return (
-      <div>
-        <span>
-          {product.item.id}
-        </span>
-        <span>
-          {product.item.title}
-        </span>
-        <span>
-          {product.item.price.amount}
-        </span>
+      <div className='details-container'>
+        <div className='details-img'>
+          <img src={this.state.product} />
+        </div>
+        <div className='details-img'>
+          <img src={this.state.product} />
+        </div>
+        <div className='details-img'>
+          <img src={this.state.product} />
+        </div>
       </div>
     );
   }

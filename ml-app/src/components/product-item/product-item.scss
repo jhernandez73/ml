@@ -1,0 +1,31 @@
+@import '../../shared/styles/variables';
+
+.item {
+  :hover {
+    cursor: pointer;
+  }
+  &-image {
+    margin: 16px;
+    width: 180px;
+    height: 180px;
+    border-radius: 4px;
+  }
+  &-description {
+    padding: 15px;
+    width: 60%;
+  }
+  &-price {
+    font-size: 24px;
+    color: $ml-dark;
+  }
+  &-name {
+    font-size: 18px;
+    color: $ml-grey;
+  }
+  &-address {
+    font-size: 12px;
+    padding: 15px;
+    width: 20%;
+    color: $ml-grey;
+  }
+}
