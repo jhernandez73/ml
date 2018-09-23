@@ -7,7 +7,8 @@
     "apis": {
       "product": {
         "search": "/sites/MLA/search",
-        "getOneById": "/items/​"
+        "getOneById": "/items",
+        "description": "/description"
       }
     }
   }

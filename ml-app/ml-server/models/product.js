@@ -7,7 +7,6 @@ class Products {
     });
   };       
 };
-
 class Item {
   constructor(id, title, description, picture, condition, currency, 
             amount, sold_quantity) {
@@ -20,7 +19,6 @@ class Item {
     this.sold_quantity = sold_quantity;
   };
 };
-
 class Price {
   constructor(currency, amount) {
     this.currency = currency;

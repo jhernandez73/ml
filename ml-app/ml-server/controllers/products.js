@@ -18,18 +18,11 @@ module.exports = {
   // get one product by id
   getOneById(req, res) {
     const id = req.params.id;
-    request({url: ml.url + ml.apis.product.getOneById + id}, (error, response) => {
-      if (error) 
-        return res.status(500).send({ error: 'Something failed!' });
-      const product = JSON.parse(response.body);
-      res.send(product);
-    });
-  };
-  getOneById(req, res) {
-    const id = req.params.id;
     Promise.all([
-      fetch(ml.url + ml.apis.product.getOneById + id).then(function(response){ return response.json() }),
-      fetch(ml.url + ml.apis.product.getOneById + id + '/description').then(function(response){ return response.json() }),
+      fetch(ml.url + ml.apis.product.getOneById + '/' + id)
+        .then(function(response){ return response.json() }),
+      fetch(ml.url + ml.apis.product.getOneById + '/' + id + ml.apis.product.description)
+        .then(function(response){ return response.json() }),
     ]).then(responses => {
       let product = responses[0];
       product.description = responses[1];
